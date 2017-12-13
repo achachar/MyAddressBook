@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Address Book</title>
+</head>
+<body>
+<nav>
+    <a href="{% url 'main_app:add_contact' %}">Add Contact</a>
+</nav>
+    <h1>Welcome to Address Book!</h1>
+    {% for address in addresses %}
+        <p><a href="{{ address.id }}">{{ address.name }}</a></p>
+        <p>{{ address.email }}</p>
+    {% endfor %}
+
+
+</body>
+</html>
