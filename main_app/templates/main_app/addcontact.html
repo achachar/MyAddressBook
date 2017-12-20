@@ -8,8 +8,10 @@
 <h1>Add a new Contact</h1>
 <h6>Please enter contact details below</h6>
 
-<form action="">
-    {{ form }}
+<form enctype="multipart/form-data" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit"/>
 </form>
 </body>
 </html>
