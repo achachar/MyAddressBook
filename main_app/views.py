@@ -12,7 +12,6 @@ from .forms import ContactForm
 class IndexView(generic.ListView):
     template_name = 'main_app/index.html'
     context_object_name = 'addresses'
-    paginate_by = 4
 
     def get_queryset(self):
         return Addresses.objects.all()
@@ -23,7 +22,7 @@ class DetailView(generic.DetailView):
 
 def add_contact(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
         return HttpResponseRedirect(reverse('main_app:index'))

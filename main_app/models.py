@@ -13,6 +13,7 @@ class Addresses(models.Model):
     city = models.CharField(max_length=20)
     state = models.CharField(max_length=20)
     country = models.CharField(max_length=20)
+    image = models.ImageField(upload_to='contact_images', default='default.jpg')
 
     def __str__(self):
         return self.name
